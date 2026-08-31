@@ -1,6 +1,8 @@
 Reference the current selection, design a new Home page into a new frame with a bright, clean , and modern aesthetic.
 
-Preserve the variables, and enforce design constraint that variables must away be used. Add new variables if neccessary.
+Convert the design into monochromatic color schema with an accent color
+Preserve the variables and primary color, enforce design constraint that variables must away be used. Edit the values of existing variables to align the design intended before rework.
+DO NOT add any new variable.
 
 Using react-lucide for icons.
 
