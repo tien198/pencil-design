@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-[#03030F] text-[#f5f5f5]">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TexCra - Core Ideas (GSAP Presentation)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Aldrich&family=Anton&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <style>
+    body { font-family: 'Afacad Flux', sans-serif; overflow-x: hidden; }
+    .font-anton { font-family: 'Anton', sans-serif; }
+    .font-aldrich { font-family: 'Aldrich', sans-serif; }
+    .font-geist { font-family: 'Geist Mono', monospace; }
+    
+    .idea-card {
+      border-bottom: 1px solid rgba(0, 105, 168, 0.15);
+      transition: all 0.3s ease;
+    }
+    
+    .simulation-panel {
+      box-shadow: 0 0 40px rgba(0, 105, 168, 0.1);
+      background: radial-gradient(circle at top left, rgba(0, 105, 168, 0.1) 0%, transparent 70%), #05050A;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-[#0069a8] selection:text-white">
+
+  <!-- Hero Section -->
+  <section class="min-h-[70vh] flex flex-col justify-center px-12 md:px-24">
+    <div class="flex items-center gap-1 mb-8" id="hero-logo">
+      <span class="font-anton text-5xl tracking-[8px]">Tex</span>
+      <span class="font-anton text-5xl tracking-[8px] text-[#0069a8]">Cra</span>
+    </div>
+    <h1 class="font-anton text-6xl md:text-8xl lg:text-[120px] leading-none uppercase" id="hero-title">
+      Core Ideas.
+    </h1>
+    <p class="font-aldrich text-xl md:text-2xl mt-8 text-[#8899aa] max-w-2xl uppercase tracking-widest" id="hero-subtitle">
+      Architecting the future, one line of code at a time.
+    </p>
+  </section>
+
+  <!-- Presentation Section -->
+  <section class="relative px-12 md:px-24 pb-32 flex flex-col lg:flex-row gap-16 items-start">
+    
+    <!-- Left: Ideas List -->
+    <div class="w-full lg:w-3/5 flex flex-col gap-0" id="ideas-container">
+      
+      <!-- Idea 01 -->
+      <div class="idea-card flex flex-col md:flex-row gap-8 py-16 opacity-30 idea-row">
+        <div class="font-anton text-6xl md:text-8xl text-[#0069a8] leading-none md:w-32 idea-num">01</div>
+        <div class="flex-1 flex flex-col gap-4">
+          <h2 class="font-aldrich text-3xl md:text-4xl tracking-[4px] idea-title">TECHNOLOGY CRAFTSMANSHIP</h2>
+          <p class="text-xl leading-relaxed text-[#8899aa] max-w-2xl idea-desc">
+            TexCra embodies Technology Craftsmanship. We view software engineering not merely as a functional requirement, but as an artisan discipline. Every line of code is purposefully written, reviewed, and refined to ensure architectural elegance and long-term viability.
+          </p>
+        </div>
+      </div>
+
+      <!-- Idea 02 -->
+      <div class="idea-card flex flex-col md:flex-row gap-8 py-16 opacity-30 idea-row">
+        <div class="font-anton text-6xl md:text-8xl text-[#0069a8] leading-none md:w-32 idea-num">02</div>
+        <div class="flex-1 flex flex-col gap-4">
+          <h2 class="font-aldrich text-3xl md:text-4xl tracking-[4px] idea-title">METICULOUSNESS IN EXECUTION</h2>
+          <p class="text-xl leading-relaxed text-[#8899aa] max-w-2xl idea-desc">
+            Precision is our baseline. We approach every phase of the development lifecycle with rigorous attention to detail—from edge-case handling to pixel-perfect UI implementation, ensuring flawless delivery that exceeds industry standards.
+          </p>
+        </div>
+      </div>
+
+      <!-- Idea 03 -->
+      <div class="idea-card flex flex-col md:flex-row gap-8 py-16 opacity-30 idea-row">
+        <div class="font-anton text-6xl md:text-8xl text-[#0069a8] leading-none md:w-32 idea-num">03</div>
+        <div class="flex-1 flex flex-col gap-4">
+          <h2 class="font-aldrich text-3xl md:text-4xl tracking-[4px] idea-title">SYSTEMATIC PLANNING</h2>
+          <p class="text-xl leading-relaxed text-[#8899aa] max-w-2xl idea-desc">
+            True scalability requires foresight. We architect systems with future expansion in mind from day one, employing robust design patterns and scalable infrastructure to accommodate exponential growth without technical debt.
+          </p>
+        </div>
+      </div>
+
+      <!-- Idea 04 -->
+      <div class="idea-card flex flex-col md:flex-row gap-8 py-16 opacity-30 idea-row">
+        <div class="font-anton text-6xl md:text-8xl text-[#0069a8] leading-none md:w-32 idea-num">04</div>
+        <div class="flex-1 flex flex-col gap-4">
+          <h2 class="font-aldrich text-3xl md:text-4xl tracking-[4px] idea-title">PERFORMANCE OPTIMIZATION</h2>
+          <p class="text-xl leading-relaxed text-[#8899aa] max-w-2xl idea-desc">
+            Speed is a core feature. Our engineering culture prioritizes latency reduction and resource efficiency, leveraging advanced caching, optimized queries, and modern delivery networks to guarantee a frictionless user experience at scale.
+          </p>
+        </div>
+      </div>
+
+      <!-- Idea 05 -->
+      <div class="idea-card flex flex-col md:flex-row gap-8 py-16 opacity-30 idea-row border-b-0">
+        <div class="font-anton text-6xl md:text-8xl text-[#0069a8] leading-none md:w-32 idea-num">05</div>
+        <div class="flex-1 flex flex-col gap-4">
+          <h2 class="font-aldrich text-3xl md:text-4xl tracking-[4px] idea-title">LONG-TERM PARTNERSHIP</h2>
+          <p class="text-xl leading-relaxed text-[#8899aa] max-w-2xl idea-desc">
+            We are not just a vendor; we are an extension of your team. Our commitment extends far beyond the initial launch, providing continuous iteration, maintenance, and strategic guidance as your product evolves in the market.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right: Sticky Canvas Simulation (GSAP Spec) -->
+    <div class="hidden lg:block w-2/5 sticky top-24 simulation-panel border border-[#0069a8]/30 rounded-xl overflow-hidden h-[400px]">
+      <div class="bg-[#03030F] border-b border-[#0069a8]/30 px-4 py-3 flex items-center gap-2">
+        <div class="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/50"></div>
+        <div class="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500/50"></div>
+        <div class="w-3 h-3 rounded-full bg-green-500/20 border border-green-500/50"></div>
+        <span class="ml-4 font-geist text-xs text-[#8899aa]">canvas_simulation.js</span>
+      </div>
+      <div class="p-6 font-geist text-sm text-[#aaddff] leading-relaxed relative h-full">
+        <div class="absolute top-4 right-4 text-xs bg-[#0069a8]/20 text-[#00aaff] px-2 py-1 rounded">LIVE GSAP SPEC</div>
+        <pre><code id="gsap-code-display" class="language-js whitespace-pre-wrap">// Waiting for scroll trigger...
+
+gsap.registerPlugin(ScrollTrigger);
+
+ScrollTrigger.create({
+  trigger: ".idea-card",
+  start: "top 80%",
+  onEnter: () => animateIdea()
+});</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero Animation
+    gsap.from("#hero-logo", { y: -20, opacity: 0, duration: 1, ease: "power3.out" });
+    gsap.from("#hero-title", { x: -50, opacity: 0, duration: 1.2, ease: "expo.out", delay: 0.2 });
+    gsap.from("#hero-subtitle", { opacity: 0, duration: 1, delay: 0.8 });
+
+    const codeDisplay = document.getElementById("gsap-code-display");
+    const rows = gsap.utils.toArray(".idea-row");
+
+    rows.forEach((row, index) => {
+      const num = row.querySelector(".idea-num");
+      const title = row.querySelector(".idea-title");
+      const desc = row.querySelector(".idea-desc");
+
+      ScrollTrigger.create({
+        trigger: row,
+        start: "top 60%",
+        end: "bottom 60%",
+        onEnter: () => {
+          // Highlight row
+          gsap.to(row, { opacity: 1, duration: 0.4 });
+          
+          // Animate inner elements
+          gsap.fromTo(num, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "back.out(1.7)" });
+          gsap.fromTo(title, { x: -20, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, delay: 0.1 });
+          gsap.fromTo(desc, { opacity: 0 }, { opacity: 1, duration: 0.5, delay: 0.2 });
+
+          // Update simulation panel
+          const codeSnippet = `// Canvas Simulation - Item 0${index + 1}
+gsap.to(ideaRow[${index}], {
+  opacity: 1, 
+  duration: 0.4
+});
+
+gsap.from(ideaNum[${index}], {
+  y: 40, 
+  opacity: 0, 
+  ease: "back.out(1.7)"
+});
+
+gsap.from(ideaText[${index}], {
+  x: -20, 
+  opacity: 0, 
+  stagger: 0.1
+});`;
+          
+          // Typewriter effect for code
+          codeDisplay.textContent = codeSnippet;
+          gsap.fromTo(codeDisplay, { opacity: 0 }, { opacity: 1, duration: 0.3 });
+        },
+        onLeaveBack: () => {
+          gsap.to(row, { opacity: 0.3, duration: 0.4 });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

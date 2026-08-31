@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>TexCra Logo PNG Exporter</title>
+  <style>
+    body { background: #0b1319; color: #fff; font-family: sans-serif; text-align: center; padding: 40px; }
+    canvas { background: transparent; border: 1px solid #0069a8; border-radius: 8px; margin-top: 20px; max-width: 100%; }
+    button { background: #0069a8; color: white; border: none; padding: 12px 24px; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; margin: 10px; }
+    button:hover { background: #00a8ff; }
+  </style>
+</head>
+<body>
+  <h2>Xuất Logo TexCra ra định dạng PNG</h2>
+  <button onclick="downloadPNG(true)">Tải PNG Nền Trong Suốt (Transparent)</button>
+  <button onclick="downloadPNG(false)">Tải PNG Nền Tối (Dark Background)</button>
+  <br>
+  <canvas id="logoCanvas" width="2400" height="1200"></canvas>
+
+  <script>
+    const svgData = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="2400" height="1200">
+      <defs>
+        <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#02111b"/><stop offset="100%" stop-color="#051f30"/>
+        </linearGradient>
+        <linearGradient id="primaryShape" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#00a8ff"/><stop offset="50%" stop-color="#0069a8"/><stop offset="100%" stop-color="#003d63"/>
+        </linearGradient>
+        <linearGradient id="accentShape" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#004d7a"/><stop offset="50%" stop-color="#0069a8"/><stop offset="100%" stop-color="#40c4ff"/>
+        </linearGradient>
+        <linearGradient id="lineGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#00a8ff" stop-opacity="0.8"/><stop offset="100%" stop-color="#0069a8" stop-opacity="0.0"/>
+        </linearGradient>
+      </defs>
+      <rect id="bgRect" width="800" height="400" rx="16" fill="url(#bgGrad)"/>
+      <g opacity="0.04" stroke="#ffffff" stroke-width="1">
+        <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none"/></pattern>
+        <rect width="800" height="400" fill="url(#grid)" />
+      </g>
+      <g transform="translate(130, 105)">
+        <path d="M 100 15 L 35 52 L 35 128 L 100 165 L 128 148 L 68 113 L 68 67 L 128 32 Z" fill="url(#primaryShape)"/>
+        <path d="M 75 0 L 175 0 L 175 32 L 140 32 L 140 180 L 108 180 L 108 32 L 75 32 Z" fill="url(#accentShape)"/>
+        <polygon points="175,48 190,57 190,75 175,84 160,75 160,48" fill="#40c4ff"/>
+      </g>
+      <text x="365" y="195" font-family="'Inter', 'Montserrat', sans-serif" font-weight="800" font-size="68" fill="#ffffff" letter-spacing="2">Tex<tspan fill="#00a8ff">Cra</tspan></text>
+      <text x="370" y="235" font-family="'Inter', sans-serif" font-weight="600" font-size="13" fill="#80c8f0" letter-spacing="6.5">TECHNOLOGY CRAFTSMANSHIP</text>
+      <path d="M 370 252 L 675 252" stroke="url(#lineGlow)" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="370" cy="252" r="3" fill="#00a8ff"/>
+    </svg>`;
+
+    function render(transparent = false) {
+      const canvas = document.getElementById('logoCanvas');
+      const ctx = canvas.getContext('2d');
+      let currentSVG = svgData;
+      
+      if (transparent) {
+        currentSVG = currentSVG.replace('<rect id="bgRect" width="800" height="400" rx="16" fill="url(#bgGrad)"/>', '');
+      }
+
+      const img = new Image();
+      const svgBlob = new Blob([currentSVG], { type: 'image/svg+xml;charset=utf-8' });
+      const url = URL.createObjectURL(svgBlob);
+
+      img.onload = function () {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        URL.revokeObjectURL(url);
+      };
+      img.src = url;
+    }
+
+    function downloadPNG(transparent) {
+      render(transparent);
+      setTimeout(() => {
+        const canvas = document.getElementById('logoCanvas');
+        const link = document.createElement('a');
+        link.download = transparent ? 'TexCra-Logo-Transparent.png' : 'TexCra-Logo-Dark.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      }, 200);
+    }
+
+    window.onload = () => render(false);
+  </script>
+</body>
+</html>
